@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About FOSSCU - Free and Open-Source Software Community United.">
+    <title>About | FOSSCU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        .page-header {
+            padding-top: 200px;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto 100px auto;
+            font-size: 1.2rem;
+            color: var(--c-text-muted);
+            line-height: 1.8;
+        }
+
+        .content-section p {
+            margin-bottom: 2rem;
+        }
+
+        /* 3D Cube Graphic Styles */
+        .about-hero-graphic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            perspective: 800px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .about-cube-container {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 15s infinite linear;
+        }
+
+        .about-cube-face {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 2px solid var(--c-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--c-primary);
+            box-shadow: inset 0 0 20px rgba(0, 255, 102, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .about-cube-face.front {
+            transform: translateZ(60px);
+        }
+
+        .about-cube-face.back {
+            transform: rotateY(180deg) translateZ(60px);
+        }
+
+        .about-cube-face.right {
+            transform: rotateY(90deg) translateZ(60px);
+        }
+
+        .about-cube-face.left {
+            transform: rotateY(-90deg) translateZ(60px);
+        }
+
+        .about-cube-face.top {
+            transform: rotateX(90deg) translateZ(60px);
+        }
+
+        .about-cube-face.bottom {
+            transform: rotateX(-90deg) translateZ(60px);
+        }
+
+        .about-cube-face svg {
+            width: 50px !important;
+            height: 50px !important;
+            max-width: 50px !important;
+            max-height: 50px !important;
+        }
+
+        @keyframes rotateCube {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">FOSSCU.</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-pill">Home</a>
+            <a href="about.html" class="nav-pill primary">About</a>
+            <a href="team.html" class="nav-pill">Team</a>
+            <a href="shipyard.html" class="nav-pill">Shipyard</a>
+            <a href="resources.html" class="nav-pill">Resources</a>
+            <a href="handbook.html" class="nav-pill outline" style="display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                </svg>
+                Handbook
+            </a>
+            <a href="https://dub.sh/fosscu" target="_blank" class="nav-pill primary" rel="noreferrer">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header" style="padding-bottom: 30px;">
+            <div class="badge-wrapper"><span class="badge">Who We Are</span></div>
+            <h1 class="page-title gs-reveal">About <span class="italic-serif highlight-yellow">FOSSCU</span></h1>
+        </section>
+
+        <!-- Interactive 3D Graphic -->
+        <section class="about-hero-graphic gs-reveal">
+            <div class="about-cube-container">
+                <div class="about-cube-face front">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="width: 40px; height: 40px;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </div>
+                <div class="about-cube-face back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="width: 40px; height: 40px;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                </div>
+                <div class="about-cube-face right">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="width: 40px; height: 40px;">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                    </svg>
+                </div>
+                <div class="about-cube-face left">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="width: 40px; height: 40px;">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <div class="about-cube-face top"></div>
+                <div class="about-cube-face bottom"></div>
+            </div>
+            <!-- Decorative shadow below cube -->
+            <div
+                style="position: absolute; bottom: 30px; width: 150px; height: 10px; background: radial-gradient(ellipse at center, rgba(0,255,102,0.2) 0%, transparent 70%); border-radius: 50%; filter: blur(4px);">
+            </div>
+        </section>
+
+        <section class="content-section" style="max-width: 1000px; padding: 0 2rem;">
+            <div class="gs-reveal" style="text-align: center; margin-bottom: 3rem;">
+                <p
+                    style="font-size: 1.25rem; color: var(--c-light); font-family: var(--f-serif); max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                    Free and Open Source Software Community United. We are a global collective of dedicated developers,
+                    innovative designers, and passionate open-source advocates working tirelessly to democratize
+                    technology for everyone.
+                </p>
+            </div>
+
+            <!-- Stats/Numbers Section -->
+            <div class="grid-layout gs-reveal"
+                style="grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 4rem;">
+                <div class="stat-card" style="padding: 1.5rem;">
+                    <div class="stat-number" style="font-size: 2.5rem;">50+</div>
+                    <div class="stat-label" style="font-size: 0.9rem;">Active Projects</div>
+                </div>
+                <div class="stat-card" style="padding: 1.5rem;">
+                    <div class="stat-number" style="font-size: 2.5rem;">1k+</div>
+                    <div class="stat-label" style="font-size: 0.9rem;">Global Members</div>
+                </div>
+                <div class="stat-card" style="padding: 1.5rem;">
+                    <div class="stat-number" style="font-size: 2.5rem;">10k</div>
+                    <div class="stat-label" style="font-size: 0.9rem;">Commits Made</div>
+                </div>
+            </div>
+
+            <div class="gs-reveal"
+                style="margin-bottom: 4rem; padding: 2rem; background: rgba(0,255,102,0.02); border: 1px solid rgba(0,255,102,0.1); border-radius: var(--radius-lg); position: relative; overflow: hidden;">
+                <!-- Decorative background accent -->
+                <div
+                    style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(0,255,102,0.05); filter: blur(40px); border-radius: 50%;">
+                </div>
+
+                <h2
+                    style="color: var(--c-primary); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Our Mission
+                </h2>
+                <p style="font-size: 1.1rem; position: relative; z-index: 1;">
+                    Our overarching mission is to empower individuals worldwide to contribute meaningfully to the global
+                    open-source ecosystem. We achieve this by providing accessible mentorship programs, comprehensive
+                    learning resources, and a highly collaborative technical environment where incredible ideas are
+                    born, nurtured, and maintained over the long term.
+                </p>
+            </div>
+
+            <div class="gs-reveal" style="margin-top: 4rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2
+                        style="color: var(--c-light); font-family: var(--f-serif); font-size: 2rem; margin-bottom: 0.5rem;">
+                        The Pillars of FOSSCU</h2>
+                    <p style="color: var(--c-text-muted); font-size: 1.1rem;">The core values that drive our decisions
+                        and shape our
+                        community culture.</p>
+                </div>
+
+                <div class="grid-layout" style="grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                    <div class="glass-card" style="position: relative; overflow: hidden; padding: 2rem;">
+                        <div
+                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--c-primary);">
+                        </div>
+                        <div class="card-icon"
+                            style="margin-bottom: 1.5rem; display: inline-flex; justify-content: center; align-items: center; width: 48px; height: 48px; background: rgba(0,255,102,0.1); border-radius: 8px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                                stroke-width="2" style="width: 24px; height: 24px;">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Radical Inclusivity</h3>
+                        <p style="color: var(--c-text-muted); line-height: 1.5; font-size: 0.95rem;">Open source is for
+                            everyone, regardless
+                            of background, experience level, or location. We actively foster a welcoming environment
+                            where all voices are heard and respected.</p>
+                    </div>
+
+                    <div class="glass-card" style="position: relative; overflow: hidden; padding: 2rem;">
+                        <div
+                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--c-primary);">
+                        </div>
+                        <div class="card-icon"
+                            style="margin-bottom: 1.5rem; display: inline-flex; justify-content: center; align-items: center; width: 48px; height: 48px; background: rgba(0,255,102,0.1); border-radius: 8px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                                stroke-width="2" style="width: 24px; height: 24px;">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Absolute Transparency</h3>
+                        <p style="color: var(--c-text-muted); line-height: 1.5; font-size: 0.95rem;">We believe in the
+                            power of public
+                            knowledge. We build our projects in the open, we document our learnings in the open, and
+                            critically, we discuss our failures in the open.</p>
+                    </div>
+
+                    <div class="glass-card g-col-span-2"
+                        style="position: relative; overflow: hidden; display: flex; align-items: center; gap: 1.5rem; padding: 2rem;">
+                        <div
+                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--c-primary);">
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Continuous Innovation</h3>
+                            <p style="color: var(--c-text-muted); line-height: 1.5; font-size: 0.95rem;">Technology
+                                never stands still, and
+                                neither do we. We encourage experimentation and actively support community members who
+                                wish to explore emerging technologies and new paradigms in software development.</p>
+                        </div>
+                        <div
+                            style="flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: rgba(0,255,102,0.1); display: flex; justify-content: center; align-items: center; border: 1px solid rgba(0,255,102,0.2);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                                stroke-width="2" style="width: 32px; height: 32px;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 FOSSCU. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <!-- Add GSAP Initialization specific to this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.gs-reveal').forEach(function (elem) {
+                gsap.fromTo(elem,
+                    { y: 40, opacity: 0 },
+                    {
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: "top 85%",
+                        },
+                        duration: 1,
+                        y: 0,
+                        opacity: 1,
+                        ease: "power3.out"
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+
+</html>

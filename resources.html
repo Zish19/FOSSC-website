@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FOSSCU Resources - Docs, Guides, and Blog">
+    <title>Resources | FOSSCU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        .page-header {
+            padding-top: 200px;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">FOSSCU.</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-pill">Home</a>
+            <a href="about.html" class="nav-pill">About</a>
+            <a href="team.html" class="nav-pill">Team</a>
+            <a href="shipyard.html" class="nav-pill">Shipyard</a>
+            <a href="resources.html" class="nav-pill primary">Resources</a>
+            <a href="handbook.html" class="nav-pill outline" style="display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                </svg>
+                Handbook
+            </a>
+            <a href="https://dub.sh/fosscu" target="_blank" class="nav-pill primary" rel="noreferrer">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="badge-wrapper"><span class="badge">Knowledge Base</span></div>
+            <h1 class="page-title">Community <span class="italic-serif highlight-yellow">Resources</span></h1>
+        </section>
+
+        <!-- Animated Networking Graphic -->
+        <section class="resources-graphic-container gs-reveal">
+            <!-- SVG Lines for Connections -->
+            <svg class="resources-connections" width="100%" height="100%">
+                <line x1="50%" y1="50%" x2="33%" y2="28%"></line>
+                <line x1="50%" y1="50%" x2="28%" y2="70%"></line>
+                <line x1="50%" y1="50%" x2="67%" y2="30%"></line>
+                <line x1="50%" y1="50%" x2="72%" y2="65%"></line>
+            </svg>
+
+            <div class="resource-node center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                </svg>
+            </div>
+            <div class="resource-node n1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+            </div>
+            <div class="resource-node n2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+            </div>
+            <div class="resource-node n3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+            </div>
+            <div class="resource-node n4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Developer Resources Learning Paths -->
+        <section style="margin-bottom: 6rem;" class="gs-reveal">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2
+                    style="font-size: clamp(2rem, 4vw, 3rem); font-family: var(--f-serif); color: var(--c-light); margin-bottom: 1rem;">
+                    Developer Resources</h2>
+                <p style="color: var(--c-text-muted); font-size: 1.15rem; max-width: 700px; margin: 0 auto;">Curated
+                    learning paths and resources to help you master different aspects of development.</p>
+            </div>
+
+            <div class="grid-layout">
+                <!-- Frontend Development -->
+                <div class="glass-card" style="text-align: left;">
+                    <div class="card-icon" style="margin-bottom: 1.5rem; background: rgba(0,255,102,0.05);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Frontend Development</h3>
+                    <p style="color: var(--c-text-muted); line-height: 1.6;">Learn to build beautiful and interactive
+                        user interfaces.</p>
+                </div>
+
+                <!-- Backend Development -->
+                <div class="glass-card" style="text-align: left;">
+                    <div class="card-icon" style="margin-bottom: 1.5rem; background: rgba(0,255,102,0.05);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Backend Development</h3>
+                    <p style="color: var(--c-text-muted); line-height: 1.6;">Master server-side programming and APIs.
+                    </p>
+                </div>
+
+                <!-- Web3 Development -->
+                <div class="glass-card" style="text-align: left;">
+                    <div class="card-icon" style="margin-bottom: 1.5rem; background: rgba(0,255,102,0.05);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                            <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                            <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+                            <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
+                            <line x1="12" y1="2" x2="12" y2="8.5"></line>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Web3 Development</h3>
+                    <p style="color: var(--c-text-muted); line-height: 1.6;">Dive into blockchain and decentralized
+                        applications.</p>
+                </div>
+
+                <!-- App Development (Spans 1 col but centered logic) -->
+                <div class="glass-card" style="text-align: left;">
+                    <div class="card-icon" style="margin-bottom: 1.5rem; background: rgba(0,255,102,0.05);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">App Development</h3>
+                    <p style="color: var(--c-text-muted); line-height: 1.6;">Create mobile applications for iOS and
+                        Android.</p>
+                </div>
+
+                <!-- AI & Machine Learning -->
+                <div class="glass-card g-col-span-2" style="text-align: left;">
+                    <div class="card-icon" style="margin-bottom: 1.5rem; background: rgba(0,255,102,0.05);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">AI & Machine Learning</h3>
+                    <p style="color: var(--c-text-muted); line-height: 1.6;">Explore artificial intelligence and ML
+                        concepts.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Community Links -->
+        <section class="gs-reveal" style="margin-bottom: 100px;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2rem; font-family: var(--f-serif); color: var(--c-light);">External Links</h2>
+            </div>
+            <div class="grid-layout">
+                <a href="https://docs.fosscu.org" target="_blank" class="glass-card"
+                    style="display: block; text-decoration: none;">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3>Documentation</h3>
+                    <p>Official docs, guidelines, and getting started materials.</p>
+                </a>
+
+                <a href="https://github.com/FOSS-Community" target="_blank" class="glass-card"
+                    style="display: block; text-decoration: none;">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Guides & Blog</h3>
+                    <p>Tutorials, technical deep dives, and community updates.</p>
+                </a>
+
+                <a href="https://fosscu.org/faq" class="glass-card" style="display: block; text-decoration: none;">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-primary)"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>FAQ</h3>
+                    <p>Frequently asked questions about open source and our community.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 FOSSCU. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <!-- Add GSAP Initialization specific to this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.gs-reveal').forEach(function (elem) {
+                gsap.fromTo(elem,
+                    { y: 50, opacity: 0 },
+                    {
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: "top 85%",
+                        },
+                        duration: 1,
+                        y: 0,
+                        opacity: 1,
+                        ease: "power3.out"
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+
+</html>
