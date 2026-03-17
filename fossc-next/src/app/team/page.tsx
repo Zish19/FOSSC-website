@@ -1,0 +1,236 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./team.css";
+
+const MemberCard = ({ member, index }: { member: { name: string; role: string; image?: string }, index: number }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div key={index} className="glass-card team-member gs-reveal">
+      <div className="member-avatar" style={{ overflow: "hidden", padding: 0 }}>
+        {member.image && !imgError ? (
+          <img 
+            src={member.image} 
+            alt={member.name} 
+            onError={() => setImgError(true)}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
+          />
+        ) : (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ margin: "1rem auto", display: "block" }}>
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        )}
+      </div>
+      <h3 className="member-name">{member.name}</h3>
+      <p className="member-role">{member.role}</p>
+    </div>
+  );
+};
+
+const STEERING_COUNCIL = [
+  { name: "AKSHAT SHARMA", role: "Superteam UAE Member, Wormhole Fellow, Builder", image: "https://i.ibb.co/bXbHcv2/image.png" },
+  { name: "KANISHK PACHAURI", role: "FLOSS activist", image: "https://i.ibb.co/z8jVL9V/kanishk-pachauri.jpg" },
+  { name: "MAYANK", role: "Sentinel and Ops", image: "https://i.ibb.co/v1mZPRz/telegram-cloud-photo-size-5-6215051693356333577-x.jpg" },
+  { name: "Vivek Pal", role: "FOSS Dev and Maintainer, Aletheia Labs, Member SuperteamVN", image: "https://i.ibb.co/vqV1SS3/vivek.jpg" },
+];
+
+const VOLUNTEERS = [
+  { name: "Devanshu Saxena", role: "Volunteer in Web Development", image: "https://i.ibb.co/pjnccjZ/Devanshu-Saxena.jpg" },
+  { name: "Utkarsh Shrivastav", role: "Volunteer in App Development, President", image: "https://i.ibb.co/HFDjq70/image.png" },
+  { name: "Shivam Kumar", role: "Volunteer in Cloud and DevOps, Community Manager", image: "https://i.ibb.co/qNbRHzM/image.png" },
+  { name: "Rishika Agarwal", role: "Women in Tech Lead, Sentinel", image: "https://i.ibb.co/47VhcxP/image.png" },
+  { name: "Abdul (Sam)ad Ansari", role: "Volunteer in Backend Development, Sculptor", image: "https://i.ibb.co/mTF0qCs/image.png" },
+  { name: "Shivam Yadav", role: "Frontend Lead", image: "https://i.ibb.co/Qd8HvWJ/Shivam-Yadav.jpg" },
+  { name: "Ayush Agarwal", role: "Community Outreach", image: "https://i.ibb.co/0YBbsks/ayush.jpg" },
+  { name: "Vishesh", role: "Keeper of the Community", image: "https://i.ibb.co/fDqSzf4/vishesh.png" },
+  { name: "Aditya Varshney", role: "Volunteer in Frontend Development", image: "https://i.ibb.co/vVTmrpm/aditya.jpg" },
+  { name: "Diya Mehra", role: "Volunteer in Competitive Programming", image: "https://i.ibb.co/k5Xhff6/diya.jpg" },
+  { name: "Yash Yadav", role: "Volunteer in Web and Blockchain Development", image: "https://i.ibb.co/J7VGLQv/yash-yadav.png" },
+  { name: "Jiya Gupta", role: "Volunteer in Web and blockchain Development", image: "https://i.ibb.co/dD5g3Sj/jiya-gupta.png" },
+  { name: "Yash Raj", role: "Volunteer in Backend and devops", image: "https://i.ibb.co/Br2T11w/yash-raj.png" },
+  { name: "Vinayak Rastogi", role: "Volunteer in Backend development", image: "https://i.ibb.co/BC0tDvN/vinayak.png" },
+  { name: "Dev Mishra", role: "Volunteer in Springboot and Java", image: "https://i.ibb.co/0j0KMdc/dev-mishra.png" },
+  { name: "Ksauraj", role: "Volunteer in linux", image: "https://i.ibb.co/sRTbgHb/Ksauraj.jpg" },
+  { name: "Sarthak Gupta", role: "Volunteer in Web Development", image: "https://i.ibb.co/kcD1Bhh/sarthak.png" },
+  { name: "Priyansh Mishra", role: "Volunteer in Machine Learning and cloud", image: "https://i.ibb.co/yN1wGR3/priyansh.png" },
+  { name: "Abhay Pratap Maurya", role: "Volunteer", image: "https://i.ibb.co/0hVMv2p/abhay.png" },
+];
+
+export default function Team() {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    if (typeof window === "undefined") return;
+
+    (gsap.utils.toArray(".gs-reveal") as HTMLElement[]).forEach((elem: HTMLElement) => {
+      gsap.fromTo(
+        elem,
+        { y: 40, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 85%",
+          },
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: "power3.out",
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, []);
+
+
+
+  return (
+    <>
+      <section className="page-header gs-reveal">
+        <div className="badge-wrapper">
+          <span className="badge">The People Behind FOSSCU</span>
+        </div>
+        <h1 className="page-title">
+          Meet The <span className="italic-serif highlight-yellow">Team</span>
+        </h1>
+        <p
+          style={{
+            color: "var(--c-text-muted)",
+            fontSize: "1.25rem",
+            maxWidth: "600px",
+            margin: "0 auto",
+          }}
+        >
+          Meet the dedicated individuals who make our community thrive
+        </p>
+      </section>
+
+      {/* Interactive Team Network Graphic */}
+      <section className="team-hero-graphic gs-reveal">
+        <div className="network-container">
+          <svg className="network-lines">
+            <line x1="20%" y1="20%" x2="50%" y2="50%" />
+            <line x1="30%" y1="80%" x2="50%" y2="50%" />
+            <line x1="80%" y1="30%" x2="50%" y2="50%" />
+            <line x1="70%" y1="70%" x2="50%" y2="50%" />
+            <line x1="10%" y1="50%" x2="50%" y2="50%" />
+
+            {/* Outer connections */}
+            <line x1="20%" y1="20%" x2="80%" y2="30%" opacity="0.1" />
+            <line x1="30%" y1="80%" x2="70%" y2="70%" opacity="0.1" />
+            <line x1="10%" y1="50%" x2="30%" y2="80%" opacity="0.1" />
+          </svg>
+
+          <div className="network-node core-node">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div className="network-node node-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            </svg>
+          </div>
+          <div className="network-node node-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            </svg>
+          </div>
+          <div className="network-node node-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            </svg>
+          </div>
+          <div className="network-node node-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            </svg>
+          </div>
+          <div className="network-node node-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Steering Council Section */}
+      <h2
+        style={{
+          textAlign: "center",
+          color: "var(--c-light)",
+          fontFamily: "var(--f-serif)",
+          fontSize: "3rem",
+          marginBottom: "3rem",
+        }}
+        className="gs-reveal"
+      >
+        Steering Council
+      </h2>
+      <section className="team-grid">
+        {STEERING_COUNCIL.map((m, i) => <MemberCard key={i} member={m} index={i} />)}
+      </section>
+
+      {/* Volunteers Section */}
+      <h2
+        style={{
+          textAlign: "center",
+          color: "var(--c-light)",
+          fontFamily: "var(--f-serif)",
+          fontSize: "3rem",
+          marginBottom: "3rem",
+        }}
+        className="gs-reveal"
+      >
+        Volunteers
+      </h2>
+      <section className="team-grid">
+        {VOLUNTEERS.map((m, i) => <MemberCard key={i} member={m} index={i} />)}
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section gs-reveal">
+        <div className="cta-box">
+          <h2 className="cta-title">Join Our Community</h2>
+          <p>
+            We are always looking for passionate individuals to join our mission.
+            Whether you&apos;re a developer, designer, or advocate, there&apos;s a place for
+            you here.
+          </p>
+          <div className="cta-buttons">
+            <a
+              href="https://dub.sh/fosscu"
+              target="_blank"
+              className="btn btn-primary"
+              rel="noreferrer"
+            >
+              Become a Volunteer
+            </a>
+            <a
+              href="https://github.com/FOSSCU"
+              target="_blank"
+              className="btn btn-dark"
+              rel="noreferrer"
+            >
+              View GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

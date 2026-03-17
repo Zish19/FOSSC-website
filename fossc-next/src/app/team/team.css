@@ -1,0 +1,188 @@
+/* Team Page Specific Styles */
+.page-header {
+  padding-top: 200px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 100px;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.member-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--c-primary);
+  margin: 0 auto 1.5rem auto;
+  background: var(--glass-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.member-avatar svg {
+  width: 60px;
+  height: 60px;
+  color: var(--c-primary);
+  opacity: 0.5;
+}
+
+.member-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--c-light);
+}
+
+.member-role {
+  color: var(--c-primary);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+/* Team Network Graphic */
+.team-hero-graphic {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.network-container {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.network-node {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 255, 102, 0.1);
+  border: 2px solid var(--c-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+  z-index: 10;
+}
+
+.network-node svg {
+  width: 20px;
+  height: 20px;
+  color: var(--c-primary);
+}
+
+.core-node {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--c-dark);
+  border-width: 3px;
+  box-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+  animation: pulseCore 3s infinite;
+}
+
+.core-node svg {
+  width: 40px;
+  height: 40px;
+}
+
+.node-1 {
+  top: 20%;
+  left: 20%;
+  animation: floatNode 4s infinite alternate ease-in-out;
+}
+
+.node-2 {
+  top: 80%;
+  left: 30%;
+  animation: floatNode 5s infinite alternate-reverse ease-in-out;
+}
+
+.node-3 {
+  top: 30%;
+  left: 80%;
+  animation: floatNode 4.5s infinite alternate ease-in-out;
+}
+
+.node-4 {
+  top: 70%;
+  left: 70%;
+  animation: floatNode 5.5s infinite alternate-reverse ease-in-out;
+}
+
+.node-5 {
+  top: 50%;
+  left: 10%;
+  animation: floatNode 6s infinite alternate ease-in-out;
+}
+
+.network-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.network-lines line {
+  stroke: var(--c-primary);
+  stroke-width: 1.5;
+  opacity: 0.3;
+  stroke-dasharray: 4, 4;
+  animation: dashLine 20s linear infinite;
+}
+
+@keyframes pulseCore {
+  0%,
+  100% {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+  }
+  50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 0 50px rgba(0, 255, 102, 0.8);
+  }
+}
+
+@keyframes floatNode {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-15px);
+  }
+}
+
+@keyframes dashLine {
+  to {
+      stroke-dashoffset: 1000;
+  }
+}
