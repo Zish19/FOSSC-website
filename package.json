@@ -1,13 +1,11 @@
 {
   "name": "fossc",
   "private": true,
+  "workspaces": ["fossc-next"],
   "scripts": {
-    "dev": "cd fossc-next && npm run dev",
-    "build": "cd fossc-next && npm run build",
-    "start": "cd fossc-next && npm run start",
-    "lint": "cd fossc-next && npm run lint"
-  },
-  "dependencies": {
-    "next": "16.1.7"
+    "dev": "npm -w fossc-next run dev",
+    "build": "npm -w fossc-next run build",
+    "start": "npm -w fossc-next run start",
+    "lint": "npm -w fossc-next run lint"
   }
 }
