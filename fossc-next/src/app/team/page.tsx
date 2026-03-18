@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import "./team.css";
 
 const MemberCard = ({ member, index }: { member: { name: string; role: string; image?: string }, index: number }) => {
@@ -12,11 +13,14 @@ const MemberCard = ({ member, index }: { member: { name: string; role: string; i
     <div key={index} className="glass-card team-member gs-reveal">
       <div className="member-avatar" style={{ overflow: "hidden", padding: 0 }}>
         {member.image && !imgError ? (
-          <img 
+          <Image 
             src={member.image} 
             alt={member.name} 
+            fill
+            sizes="150px"
             onError={() => setImgError(true)}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
+            style={{ objectFit: "cover", display: "block" }} 
+            unoptimized
           />
         ) : (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ margin: "1rem auto", display: "block" }}>
