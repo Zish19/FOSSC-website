@@ -6,5 +6,8 @@
     "build": "cd fossc-next && npm run build",
     "start": "cd fossc-next && npm run start",
     "lint": "cd fossc-next && npm run lint"
+  },
+  "dependencies": {
+    "next": "16.1.7"
   }
 }
