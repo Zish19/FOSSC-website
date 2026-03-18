@@ -913,6 +913,9 @@ section {
     height: 15px;
     background: var(--c-primary);
     border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    right: 12px;
 }
 
 /* Shipyard Custom Visual Elements */

@@ -27,6 +27,9 @@ export default function Navbar() {
         <Link href="/team" className="nav-pill">
           Team
         </Link>
+        <Link href="/faq" className="nav-pill">
+          FAQ
+        </Link>
         <Link href="/shipyard" className="nav-pill">
           Shipyard
         </Link>
