@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd fossc-next && npm run build",
+  "outputDirectory": "fossc-next/.next",
+  "framework": "nextjs"
+}
