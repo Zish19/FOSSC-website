@@ -1,4 +1,5 @@
 {
+  "installCommand": "cd fossc-next && npm install",
   "buildCommand": "cd fossc-next && npm run build",
   "outputDirectory": "fossc-next/.next",
   "framework": "nextjs"
