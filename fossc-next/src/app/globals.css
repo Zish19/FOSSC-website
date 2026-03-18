@@ -874,19 +874,42 @@ section {
 /* Interactive Eye Graphic Elements */
 .eye-container {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 50px;
+    width: 180px;
+    height: 180px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--c-light);
     border-radius: 50%;
-    border: 8px solid var(--c-dark);
-    box-shadow: 0 0 0 4px var(--c-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    /* Realistic eye shape with layered shadows */
+    background: radial-gradient(circle at 40% 35%, #ffffff 0%, #f0f0f0 40%, #e0e0e0 60%, #d0d0d0 100%);
+    border: 3px solid rgba(0, 255, 102, 0.6);
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 255, 102, 0.3),
+        0 0 60px rgba(0, 255, 102, 0.15),
+        inset 0 0 30px rgba(0, 0, 0, 0.15);
+    animation: eyeGlow 2s ease-in-out infinite;
+}
+
+@keyframes eyeGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 0 3px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(0, 255, 102, 0.3),
+            0 0 60px rgba(0, 255, 102, 0.15),
+            inset 0 0 30px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+        box-shadow:
+            0 0 0 3px rgba(0, 0, 0, 0.8),
+            0 0 35px rgba(0, 255, 102, 0.5),
+            0 0 80px rgba(0, 255, 102, 0.25),
+            inset 0 0 30px rgba(0, 0, 0, 0.15);
+    }
 }
 
 .eye {
@@ -898,24 +921,118 @@ section {
     justify-content: center;
 }
 
+/* Iris ring */
+.eye::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        rgba(0, 255, 102, 0.4),
+        rgba(0, 180, 80, 0.6),
+        rgba(0, 255, 102, 0.3),
+        rgba(0, 200, 60, 0.5),
+        rgba(0, 255, 102, 0.4)
+    );
+    animation: irisRotate 5s linear infinite;
+    z-index: 1;
+}
+
+@keyframes irisRotate {
+    to { transform: rotate(360deg); }
+}
+
+/* Subtle iris texture ring */
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 55%, rgba(0, 255, 102, 0.08) 56%, rgba(0, 255, 102, 0.03) 70%, transparent 71%);
+    z-index: 2;
+}
+
 .pupil {
-    width: 60px;
-    height: 60px;
-    background: var(--c-dark);
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle at 40% 35%, #1a1a1a, #000000);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 3;
+    box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.8),
+        inset 0 0 8px rgba(0, 255, 102, 0.15);
+    transition: transform 0.3s ease;
 }
 
+/* Primary highlight - bright white reflection */
 .pupil-highlight {
-    width: 15px;
-    height: 15px;
-    background: var(--c-primary);
+    width: 9px;
+    height: 9px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, rgba(255, 255, 255, 0.8));
     border-radius: 50%;
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 6px;
+    right: 6px;
+    z-index: 5;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    animation: highlightPulse 1.5s ease-in-out infinite;
+}
+
+/* Secondary smaller highlight */
+.pupil-highlight::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    bottom: -10px;
+    left: -5px;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+    animation: highlightPulse 1.5s ease-in-out 0.3s infinite;
+}
+
+/* Green accent glow on pupil edge */
+.pupil-highlight::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 3px;
+    background: rgba(0, 255, 102, 0.6);
+    border-radius: 50%;
+    bottom: -15px;
+    right: 2px;
+    filter: blur(1px);
+    animation: greenGlint 2s ease-in-out infinite;
+}
+
+@keyframes highlightPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes greenGlint {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.3);
+    }
 }
 
 /* Shipyard Custom Visual Elements */

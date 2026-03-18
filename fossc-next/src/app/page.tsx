@@ -25,10 +25,10 @@ export default function Home() {
       const eyeCenterY = eyeRect.top + eyeRect.height / 2;
       const rad = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
 
-      const distance = Math.min(
-        Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 10,
-        20 // max displacement
-      );
+      const rawDist = Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY);
+      // Smooth falloff — moves fast near center, eases off at edges (no snapping)
+      const maxDisplace = 22;
+      const distance = maxDisplace * (1 - Math.exp(-rawDist / 150));
 
       const pupilX = Math.cos(rad) * distance;
       const pupilY = Math.sin(rad) * distance;
@@ -36,23 +36,21 @@ export default function Home() {
       gsap.to(pupil, {
         x: `${pupilX}px`,
         y: `${pupilY}px`,
-        duration: 0.2,
-        ease: "power2.out",
+        duration: 0.15,
+        ease: "sine.out",
       });
 
       if (highlight) {
-        const highlightDist = Math.min(
-          Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 5,
-          15 // max displacement
-        );
+        const maxHighlight = 15;
+        const highlightDist = maxHighlight * (1 - Math.exp(-rawDist / 180));
         const hX = Math.cos(rad) * highlightDist;
         const hY = Math.sin(rad) * highlightDist;
 
         gsap.to(highlight, {
           x: `${hX}px`,
           y: `${hY}px`,
-          duration: 0.6,
-          ease: "elastic.out(1.2, 0.4)",
+          duration: 0.3,
+          ease: "sine.out",
         });
       }
     };
@@ -132,21 +130,7 @@ export default function Home() {
         });
       });
 
-      // Retro Monitors
-      (gsap.utils.toArray(".retro-monitor") as HTMLElement[]).forEach((monitor: HTMLElement, i) => {
-        gsap.from(monitor, {
-          scrollTrigger: {
-            trigger: monitor,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-          scale: 0.9,
-          opacity: 0,
-          duration: 0.8,
-          ease: "back.out(1.2)",
-          delay: i * 0.15,
-        });
-      });
+      // Retro monitor animations now handled in the NEW ANIMATIONS section below
 
       // Section Headers
       (gsap.utils.toArray(".section-header") as HTMLElement[]).forEach((header: HTMLElement) => {
@@ -218,6 +202,125 @@ export default function Home() {
         scale: 1.3,
         opacity: 0.5,
         duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      // --- NEW ANIMATIONS ---
+
+      // Marquee parallax on scroll
+      gsap.to(".marquee-container", {
+        scrollTrigger: {
+          trigger: ".marquee-container",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+        backgroundPosition: "100% 50%",
+        ease: "none",
+      });
+
+      // Marquee speed-up on scroll
+      gsap.to(".marquee", {
+        scrollTrigger: {
+          trigger: ".marquee-container",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+        x: -100,
+        ease: "none",
+      });
+
+      // 3D tilt on glass cards (mouse enter/leave)
+      const cards = document.querySelectorAll(".glass-card");
+      cards.forEach((card) => {
+        const el = card as HTMLElement;
+        el.addEventListener("mousemove", (e: MouseEvent) => {
+          const rect = el.getBoundingClientRect();
+          const xPos = (e.clientX - rect.left) / rect.width - 0.5;
+          const yPos = (e.clientY - rect.top) / rect.height - 0.5;
+          gsap.to(el, {
+            rotateY: xPos * 8,
+            rotateX: -yPos * 8,
+            duration: 0.4,
+            ease: "power2.out",
+            transformPerspective: 800,
+          });
+        });
+        el.addEventListener("mouseleave", () => {
+          gsap.to(el, {
+            rotateY: 0,
+            rotateX: 0,
+            duration: 0.6,
+            ease: "elastic.out(1, 0.5)",
+          });
+        });
+      });
+
+      // Staggered stat blocks with scale bounce
+      (gsap.utils.toArray(".stat-block") as HTMLElement[]).forEach((block: HTMLElement, i) => {
+        gsap.from(block, {
+          scrollTrigger: {
+            trigger: block,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+          y: 40,
+          scale: 0.8,
+          opacity: 0,
+          duration: 0.8,
+          ease: "back.out(1.4)",
+          delay: i * 0.2,
+        });
+      });
+
+      // CTA box shimmer gradient sweep
+      const ctaBox = document.querySelector(".cta-box") as HTMLElement;
+      if (ctaBox) {
+        gsap.fromTo(ctaBox, 
+          { backgroundImage: "linear-gradient(105deg, #050505 0%, #050505 40%, rgba(0,255,102,0.06) 50%, #050505 60%, var(--c-dark-sec) 100%)", backgroundSize: "200% 100%", backgroundPosition: "100% 0" },
+          {
+            backgroundPosition: "-100% 0",
+            duration: 4,
+            repeat: -1,
+            ease: "sine.inOut",
+          }
+        );
+      }
+
+      // Retro monitors stagger with rotation entrance  
+      (gsap.utils.toArray(".retro-monitor") as HTMLElement[]).forEach((monitor: HTMLElement, i) => {
+        gsap.from(monitor, {
+          scrollTrigger: {
+            trigger: monitor,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+          y: 60,
+          rotation: i % 2 === 0 ? -3 : 3,
+          scale: 0.85,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: i * 0.15,
+        });
+      });
+
+      // Badge pulse animation
+      gsap.to(".badge", {
+        boxShadow: "0 0 15px rgba(0, 255, 102, 0.4)",
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      // Button hover arrow bounce (continuous)
+      gsap.to(".btn-primary svg", {
+        x: 4,
+        duration: 0.8,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
