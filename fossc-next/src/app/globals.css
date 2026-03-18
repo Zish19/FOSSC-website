@@ -19,8 +19,8 @@
     --c-bg: #000000;
 
     /* Typography */
-    --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --f-serif: 'Space Grotesk', sans-serif;
+    --f-sans: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-serif: 'Space Grotesk', 'Trebuchet MS', sans-serif;
     /* Replaced serif with a technical display font */
 
     /* Spacing & Layout */
