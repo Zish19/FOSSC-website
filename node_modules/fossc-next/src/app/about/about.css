@@ -8,6 +8,7 @@
   font-size: clamp(3rem, 6vw, 5rem);
   text-transform: uppercase;
   margin-bottom: 1rem;
+  text-wrap: balance;
 }
 
 .content-section {
@@ -24,6 +25,9 @@
 
 /* 3D Cube Graphic Styles */
 .about-hero-graphic {
+  --cube-size: 120px;
+  --cube-depth: 60px;
+  --cube-icon-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,8 +38,8 @@
 }
 
 .about-cube-container {
-  width: 120px;
-  height: 120px;
+  width: var(--cube-size);
+  height: var(--cube-size);
   position: relative;
   transform-style: preserve-3d;
   animation: rotateCube 15s infinite linear;
@@ -43,8 +47,8 @@
 
 .about-cube-face {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: var(--cube-size);
+  height: var(--cube-size);
   background: rgba(10, 10, 10, 0.8);
   border: 2px solid var(--c-primary);
   display: flex;
@@ -57,34 +61,73 @@
 }
 
 .about-cube-face.front {
-  transform: translateZ(60px);
+  transform: translateZ(var(--cube-depth));
 }
 
 .about-cube-face.back {
-  transform: rotateY(180deg) translateZ(60px);
+  transform: rotateY(180deg) translateZ(var(--cube-depth));
 }
 
 .about-cube-face.right {
-  transform: rotateY(90deg) translateZ(60px);
+  transform: rotateY(90deg) translateZ(var(--cube-depth));
 }
 
 .about-cube-face.left {
-  transform: rotateY(-90deg) translateZ(60px);
+  transform: rotateY(-90deg) translateZ(var(--cube-depth));
 }
 
 .about-cube-face.top {
-  transform: rotateX(90deg) translateZ(60px);
+  transform: rotateX(90deg) translateZ(var(--cube-depth));
 }
 
 .about-cube-face.bottom {
-  transform: rotateX(-90deg) translateZ(60px);
+  transform: rotateX(-90deg) translateZ(var(--cube-depth));
 }
 
 .about-cube-face svg {
-  width: 50px !important;
-  height: 50px !important;
-  max-width: 50px !important;
-  max-height: 50px !important;
+  width: var(--cube-icon-size) !important;
+  height: var(--cube-icon-size) !important;
+  max-width: var(--cube-icon-size) !important;
+  max-height: var(--cube-icon-size) !important;
+}
+
+.about-content-section {
+  overflow: clip;
+}
+
+.about-intro-copy,
+.about-mission-copy,
+.about-pillars-copy {
+  text-wrap: pretty;
+}
+
+.about-stat-card {
+  background: rgba(0, 255, 102, 0.03);
+  border: 1px solid rgba(0, 255, 102, 0.1);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.about-mission {
+  backdrop-filter: blur(10px);
+}
+
+.about-mission-title,
+.about-pillars-title {
+  text-wrap: balance;
+}
+
+.about-pillars-grid {
+  align-items: stretch;
+}
+
+.about-pillar-card,
+.about-pillar-wide {
+  min-width: 0;
+}
+
+.about-pillar-wide {
+  gap: 1.5rem;
 }
 
 @keyframes rotateCube {
@@ -94,5 +137,93 @@
 
   100% {
       transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .page-header {
+    padding-top: 160px;
+    padding-bottom: 72px;
+  }
+
+  .about-content-section {
+    margin-bottom: 80px;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-pillars-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-pillar-wide {
+    grid-column: span 1 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-header {
+    padding-top: 140px;
+    padding-bottom: 56px;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .about-hero-graphic {
+    --cube-size: 92px;
+    --cube-depth: 46px;
+    --cube-icon-size: 38px;
+    height: 220px;
+    margin-bottom: 1rem;
+  }
+
+  .about-content-section {
+    padding: 0 1.25rem !important;
+  }
+
+  .about-intro {
+    margin-bottom: 2rem !important;
+  }
+
+  .about-intro-copy {
+    font-size: 1.05rem !important;
+  }
+
+  .about-stat-card {
+    padding: 1.2rem !important;
+  }
+
+  .about-mission {
+    padding: 1.5rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .about-mission-title {
+    font-size: 1.2rem !important;
+    gap: 0.6rem !important;
+  }
+
+  .about-mission-copy,
+  .about-pillars-copy {
+    font-size: 1rem !important;
+  }
+
+  .about-pillars {
+    margin-top: 3rem !important;
+  }
+
+  .about-pillars-title {
+    font-size: 1.7rem !important;
+  }
+
+  .about-pillar-card,
+  .about-pillar-wide {
+    padding: 1.5rem !important;
   }
 }

@@ -519,7 +519,7 @@ export default function Home() {
             <h4 className="stat-number" style={{ fontSize: "3.5rem", color: "var(--c-primary)", fontFamily: "var(--f-serif)", marginBottom: "0.5rem" }} data-target="50">0</h4>
             <span style={{ color: "var(--c-text-muted)", textTransform: "uppercase", letterSpacing: "2px", fontSize: "0.9rem" }}>Active Projects</span>
           </div>
-          <div className="stat-block gs-reveal" style={{ borderLeft: "1px solid rgba(255,255,255,0.05)", borderRight: "1px solid rgba(255,255,255,0.05)" }}>
+          <div className="stat-block stat-block-divider gs-reveal" style={{ borderLeft: "1px solid rgba(255,255,255,0.05)", borderRight: "1px solid rgba(255,255,255,0.05)" }}>
             <h4 className="stat-number" style={{ fontSize: "3.5rem", color: "var(--c-primary)", fontFamily: "var(--f-serif)", marginBottom: "0.5rem" }} data-target="1500">0</h4>
             <span style={{ color: "var(--c-text-muted)", textTransform: "uppercase", letterSpacing: "2px", fontSize: "0.9rem" }}>Global Contributors</span>
           </div>

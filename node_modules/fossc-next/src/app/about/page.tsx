@@ -115,11 +115,12 @@ export default function About() {
       </section>
 
       <section
-        className="content-section"
+        className="content-section about-content-section"
         style={{ maxWidth: "1000px", padding: "0 2rem" }}
       >
-        <div className="gs-reveal" style={{ textAlign: "center", marginBottom: "3rem" }}>
+        <div className="gs-reveal about-intro" style={{ textAlign: "center", marginBottom: "3rem" }}>
           <p
+            className="about-intro-copy"
             style={{
               fontSize: "1.25rem",
               color: "var(--c-light)",
@@ -138,14 +139,14 @@ export default function About() {
 
         {/* Stats/Numbers Section */}
         <div
-          className="grid-layout gs-reveal"
+          className="grid-layout gs-reveal about-stats-grid"
           style={{
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: "1.5rem",
             marginBottom: "4rem",
           }}
         >
-          <div className="stat-card" style={{ padding: "1.5rem" }}>
+          <div className="stat-card about-stat-card" style={{ padding: "1.5rem" }}>
             <div className="stat-number" style={{ fontSize: "2.5rem" }}>
               50+
             </div>
@@ -153,7 +154,7 @@ export default function About() {
               Active Projects
             </div>
           </div>
-          <div className="stat-card" style={{ padding: "1.5rem" }}>
+          <div className="stat-card about-stat-card" style={{ padding: "1.5rem" }}>
             <div className="stat-number" style={{ fontSize: "2.5rem" }}>
               1k+
             </div>
@@ -161,7 +162,7 @@ export default function About() {
               Global Members
             </div>
           </div>
-          <div className="stat-card" style={{ padding: "1.5rem" }}>
+          <div className="stat-card about-stat-card" style={{ padding: "1.5rem" }}>
             <div className="stat-number" style={{ fontSize: "2.5rem" }}>
               10k
             </div>
@@ -172,13 +173,13 @@ export default function About() {
         </div>
 
         <div
-          className="gs-reveal"
+          className="gs-reveal about-mission"
           style={{
             marginBottom: "4rem",
             padding: "2rem",
             background: "rgba(0,255,102,0.02)",
             border: "1px solid rgba(0,255,102,0.1)",
-            borderRadius: "var(--radius-lg)",
+            borderRadius: "var(--radius-md)",
             position: "relative",
             overflow: "hidden",
           }}
@@ -198,6 +199,7 @@ export default function About() {
           ></div>
 
           <h2
+            className="about-mission-title"
             style={{
               color: "var(--c-primary)",
               fontSize: "1.5rem",
@@ -222,7 +224,7 @@ export default function About() {
             </svg>
             Our Mission
           </h2>
-          <p style={{ fontSize: "1.1rem", position: "relative", zIndex: 1 }}>
+          <p className="about-mission-copy" style={{ fontSize: "1.1rem", position: "relative", zIndex: 1 }}>
             Our overarching mission is to empower individuals worldwide to
             contribute meaningfully to the global open-source ecosystem. We
             achieve this by providing accessible mentorship programs, comprehensive
@@ -232,9 +234,10 @@ export default function About() {
           </p>
         </div>
 
-        <div className="gs-reveal" style={{ marginTop: "4rem" }}>
-          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+        <div className="gs-reveal about-pillars" style={{ marginTop: "4rem" }}>
+          <div className="about-pillars-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
             <h2
+              className="about-pillars-title"
               style={{
                 color: "var(--c-light)",
                 fontFamily: "var(--f-serif)",
@@ -244,18 +247,18 @@ export default function About() {
             >
               The Pillars of FOSSCU
             </h2>
-            <p style={{ color: "var(--c-text-muted)", fontSize: "1.1rem" }}>
+            <p className="about-pillars-copy" style={{ color: "var(--c-text-muted)", fontSize: "1.1rem" }}>
               The core values that drive our decisions and shape our community
               culture.
             </p>
           </div>
 
           <div
-            className="grid-layout"
+            className="grid-layout about-pillars-grid"
             style={{ gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5rem" }}
           >
             <div
-              className="glass-card"
+              className="glass-card about-pillar-card"
               style={{ position: "relative", overflow: "hidden", padding: "2rem" }}
             >
               <div
@@ -313,7 +316,7 @@ export default function About() {
             </div>
 
             <div
-              className="glass-card"
+              className="glass-card about-pillar-card"
               style={{ position: "relative", overflow: "hidden", padding: "2rem" }}
             >
               <div
@@ -370,7 +373,7 @@ export default function About() {
             </div>
 
             <div
-              className="glass-card g-col-span-2"
+              className="glass-card g-col-span-2 about-pillar-wide"
               style={{
                 position: "relative",
                 overflow: "hidden",

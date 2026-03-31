@@ -1,45 +1,57 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import AnimatedLogo from "./AnimatedLogo";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const [openPathname, setOpenPathname] = useState<string | null>(null);
+  const isOpen = openPathname === pathname;
+
+  useEffect(() => {
+    document.body.classList.toggle("nav-open", isOpen);
+
+    return () => {
+      document.body.classList.remove("nav-open");
+    };
+  }, [isOpen]);
+
+  const closeMenu = () => {
+    setOpenPathname(null);
+  };
 
   return (
-    <nav className="navbar">
-      <Link href="/" className="nav-brand">
+    <nav className={`navbar ${isOpen ? "menu-open" : ""}`}>
+      <Link href="/" className="nav-brand" onClick={closeMenu}>
         <AnimatedLogo />
       </Link>
-      
-      {/* 
-        In original, .nav-links disappeared on mobile.
-        We keep the same CSS logic, but we could expand on `isOpen` state
-        to toggle a mobile menu if we wanted to build on top. 
-      */}
-      <div className={`nav-links ${isOpen ? "active" : ""}`}>
-        <Link href="/" className="nav-pill">
+
+      <div className={`nav-links ${isOpen ? "active" : ""}`} id="primary-navigation">
+        <span className="nav-mobile-kicker">Navigate</span>
+        <Link href="/" className="nav-pill" onClick={closeMenu}>
           Home
         </Link>
-        <Link href="/about" className="nav-pill">
+        <Link href="/about" className="nav-pill" onClick={closeMenu}>
           About
         </Link>
-        <Link href="/team" className="nav-pill">
+        <Link href="/team" className="nav-pill" onClick={closeMenu}>
           Team
         </Link>
-        <Link href="/faq" className="nav-pill">
+        <Link href="/faq" className="nav-pill" onClick={closeMenu}>
           FAQ
         </Link>
-        <Link href="/shipyard" className="nav-pill">
+        <Link href="/shipyard" className="nav-pill" onClick={closeMenu}>
           Shipyard
         </Link>
-        <Link href="/resources" className="nav-pill">
+        <Link href="/resources" className="nav-pill" onClick={closeMenu}>
           Resources
         </Link>
         <Link 
           href="/handbook" 
           className="nav-pill outline" 
+          onClick={closeMenu}
           style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}
         >
           <svg
@@ -60,16 +72,32 @@ export default function Navbar() {
           href="https://dub.sh/fosscu" 
           target="_blank" 
           className="nav-pill primary" 
+          onClick={closeMenu}
           rel="noreferrer"
         >
           Join Us
         </a>
       </div>
 
-      <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-      </div>
+      <button
+        type="button"
+        className={`menu-toggle ${isOpen ? "active" : ""}`}
+        aria-expanded={isOpen}
+        aria-controls="primary-navigation"
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+        onClick={() => setOpenPathname((current) => (current === pathname ? null : pathname))}
+      >
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </button>
+
+      <button
+        type="button"
+        className={`nav-backdrop ${isOpen ? "active" : ""}`}
+        aria-label="Close navigation menu"
+        tabIndex={isOpen ? 0 : -1}
+        onClick={closeMenu}
+      />
     </nav>
   );
 }

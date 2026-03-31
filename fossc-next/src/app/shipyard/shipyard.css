@@ -1,0 +1,156 @@
+.shipyard-header {
+  text-align: center;
+}
+
+.shipyard-title {
+  text-wrap: balance;
+}
+
+.shipyard-intro {
+  text-wrap: pretty;
+}
+
+.shipyard-code-window-container {
+  overflow: clip;
+}
+
+.shipyard-code-window {
+  position: relative;
+}
+
+.shipyard-window-title {
+  white-space: nowrap;
+}
+
+.shipyard-code-body {
+  overflow-wrap: anywhere;
+}
+
+.shipyard-callout {
+  backdrop-filter: blur(8px);
+}
+
+.shipyard-feature-card {
+  min-width: 0;
+}
+
+.shipyard-cta-button {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .shipyard-header {
+    padding-top: 160px !important;
+    padding-bottom: 72px !important;
+  }
+
+  .shipyard-overview-grid {
+    margin-bottom: 4rem !important;
+  }
+
+  .shipyard-features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .shipyard-code-window {
+    max-width: 100% !important;
+  }
+
+  .shipyard-steps {
+    margin-left: 0 !important;
+    padding-left: 0.35rem;
+  }
+
+  .shipyard-cta {
+    margin-bottom: 110px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .shipyard-header {
+    padding-top: 140px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .shipyard-title {
+    font-size: clamp(2.4rem, 11vw, 4rem) !important;
+  }
+
+  .shipyard-intro {
+    font-size: 1rem !important;
+    max-width: 32rem !important;
+    padding: 0 0.25rem;
+  }
+
+  .shipyard-code-window-container {
+    margin-bottom: 3rem !important;
+  }
+
+  .shipyard-window-header {
+    padding: 14px 16px !important;
+  }
+
+  .shipyard-window-dot {
+    width: 11px !important;
+    height: 11px !important;
+  }
+
+  .shipyard-window-title {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .shipyard-code-body {
+    padding: 20px 16px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .shipyard-callout {
+    padding: 1.1rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .shipyard-steps {
+    padding-left: 0.2rem;
+  }
+
+  .ship-step-card {
+    padding-left: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ship-step-card:hover {
+    transform: none;
+    padding-right: 0;
+  }
+
+  .ship-step-number {
+    left: -16px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .shipyard-feature-card {
+    padding: 1.5rem !important;
+  }
+
+  .shipyard-cta {
+    margin-bottom: 90px !important;
+  }
+
+  .shipyard-cta-line {
+    left: 6% !important;
+    right: 6% !important;
+  }
+
+  .shipyard-cta-button {
+    width: min(100%, 22rem);
+    justify-content: center;
+    font-size: 1rem !important;
+    padding: 1rem 1.5rem !important;
+    letter-spacing: 0.12em !important;
+  }
+}

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./shipyard.css";
 
 export default function Shipyard() {
   useEffect(() => {
@@ -44,14 +45,14 @@ export default function Shipyard() {
   return (
     <>
       <section
-        className="page-header"
+        className="page-header shipyard-header"
         style={{ paddingTop: "200px", paddingBottom: "100px", textAlign: "center" }}
       >
         <div className="badge-wrapper">
           <span className="badge">Innovation Hub</span>
         </div>
         <h1
-          className="page-title"
+          className="page-title shipyard-title"
           style={{
             fontSize: "clamp(3rem, 6vw, 5rem)",
             textTransform: "uppercase",
@@ -61,6 +62,7 @@ export default function Shipyard() {
           Welcome to <span className="italic-serif highlight-yellow">Shipyard</span>
         </h1>
         <p
+          className="shipyard-intro"
           style={{
             color: "var(--c-text-muted)",
             fontSize: "1.25rem",
@@ -76,7 +78,7 @@ export default function Shipyard() {
       {/* Code Editor Graphic Element */}
       <section className="gs-reveal shipyard-code-window-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '4rem' }}>
         <div 
-          className="code-window"
+          className="code-window shipyard-code-window"
           style={{
             background: 'rgba(10, 10, 10, 0.8)',
             backdropFilter: 'blur(16px)',
@@ -89,24 +91,24 @@ export default function Shipyard() {
           }}
         >
           {/* Mac-style Window Header */}
-          <div style={{
+          <div className="shipyard-window-header" style={{
             display: 'flex',
             alignItems: 'center',
             padding: '16px 20px',
             background: 'rgba(255, 255, 255, 0.02)',
             borderBottom: '1px solid rgba(0, 255, 102, 0.1)'
           }}>
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#ff5f56' }}></div>
-              <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#ffbd2e' }}></div>
-              <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#27c93f' }}></div>
+            <div className="shipyard-window-dots" style={{ display: 'flex', gap: '8px' }}>
+              <div className="shipyard-window-dot shipyard-window-dot-close" style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#ff5f56' }}></div>
+              <div className="shipyard-window-dot shipyard-window-dot-minimize" style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#ffbd2e' }}></div>
+              <div className="shipyard-window-dot shipyard-window-dot-expand" style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#27c93f' }}></div>
             </div>
-            <div style={{ margin: '0 auto', color: 'var(--c-text-muted)', fontSize: '0.9rem', fontFamily: 'var(--f-serif)', letterSpacing: '1px' }}>
+            <div className="shipyard-window-title" style={{ margin: '0 auto', color: 'var(--c-text-muted)', fontSize: '0.9rem', fontFamily: 'var(--f-serif)', letterSpacing: '1px' }}>
               shipyard_init.js
             </div>
           </div>
           {/* Code Body */}
-          <div style={{
+          <div className="shipyard-code-body" style={{
             padding: '30px',
             fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
             color: '#a9b7c6',
@@ -140,7 +142,7 @@ export default function Shipyard() {
       </section>
 
       {/* What is Shipyard / How to Submit Section */}
-      <section className="grid-layout gs-reveal" style={{ marginBottom: "5rem" }}>
+      <section className="grid-layout gs-reveal shipyard-overview-grid" style={{ marginBottom: "5rem" }}>
         <div className="glass-card" style={{ alignSelf: "start" }}>
           <h2
             style={{
@@ -175,6 +177,7 @@ export default function Shipyard() {
             collaborate, and showcase their creativity.
           </p>
           <div
+            className="shipyard-callout"
             style={{
               padding: "1.5rem",
               background: "rgba(0,255,102,0.05)",
@@ -227,7 +230,7 @@ export default function Shipyard() {
             </h2>
           </div>
 
-          <div style={{ marginLeft: "1rem" }}>
+          <div className="shipyard-steps" style={{ marginLeft: "1rem" }}>
             <div className="ship-step-card">
               <div className="ship-step-number">1</div>
               <p
@@ -306,11 +309,11 @@ export default function Shipyard() {
 
       {/* Features/Values Section */}
       <section
-        className="grid-layout gs-reveal"
+        className="grid-layout gs-reveal shipyard-features-grid"
         style={{ gridTemplateColumns: "repeat(3, 1fr)", marginBottom: "5rem" }}
       >
         <div
-          className="glass-card"
+          className="glass-card shipyard-feature-card"
           style={{ textAlign: "center", borderTop: "4px solid var(--c-primary)" }}
         >
           <div
@@ -337,7 +340,7 @@ export default function Shipyard() {
           </p>
         </div>
         <div
-          className="glass-card"
+          className="glass-card shipyard-feature-card"
           style={{ textAlign: "center", borderTop: "4px solid var(--c-primary)" }}
         >
           <div
@@ -361,7 +364,7 @@ export default function Shipyard() {
           </p>
         </div>
         <div
-          className="glass-card"
+          className="glass-card shipyard-feature-card"
           style={{ textAlign: "center", borderTop: "4px solid var(--c-primary)" }}
         >
           <div
@@ -388,7 +391,7 @@ export default function Shipyard() {
 
       {/* CTA Section */}
       <section
-        className="gs-reveal"
+        className="gs-reveal shipyard-cta"
         style={{
           textAlign: "center",
           marginBottom: "150px",
@@ -397,6 +400,7 @@ export default function Shipyard() {
         }}
       >
         <div
+          className="shipyard-cta-line"
           style={{
             position: "absolute",
             top: "50%",
@@ -412,7 +416,7 @@ export default function Shipyard() {
         <a
           href="https://github.com/FOSS-Community/fosscu.org/blob/main/src/app/shipyard/README.md"
           target="_blank"
-          className="btn btn-primary"
+          className="btn btn-primary shipyard-cta-button"
           style={{
             fontSize: "1.25rem",
             padding: "1.2rem 3.5rem",
