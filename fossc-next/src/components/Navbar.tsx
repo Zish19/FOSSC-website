@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import AnimatedLogo from "./AnimatedLogo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link href="/" className="nav-brand">
-        FOSSCU.
+        <AnimatedLogo />
       </Link>
       
       {/* 
