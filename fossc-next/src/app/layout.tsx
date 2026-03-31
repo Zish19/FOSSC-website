@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Cursor from "@/components/Cursor";
 
 export const metadata: Metadata = {
   title: "FOSSCU | Free and Open Source Software Community",
@@ -25,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Cursor />
         <Navbar />
         <main>{children}</main>
         <Footer />

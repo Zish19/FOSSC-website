@@ -59,8 +59,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;
-    cursor: none;
-    /* Custom cursor */
     /* Technical Grid Background */
     background-image: radial-gradient(rgba(0, 255, 102, 0.05) 1px, transparent 1px);
     background-size: 24px 24px;
@@ -108,34 +106,6 @@ a {
 
 ul {
     list-style: none;
-}
-
-/* Custom Cursor */
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--c-primary);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9999;
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(0, 255, 102, 0.5);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9998;
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
 /* Container */
@@ -1035,70 +1005,14 @@ section {
     }
 }
 
-/* Shipyard Custom Visual Elements */
-.shipyard-graphic-container {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 4rem;
-    overflow: visible;
-    border-radius: var(--radius-md);
-    background: radial-gradient(circle at center, rgba(0, 255, 102, 0.1) 0%, transparent 70%);
+/* Terminal Window Animations */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-.shipyard-pulse-ring {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid var(--c-primary);
-    animation: shipyardPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.shipyard-pulse-ring:nth-child(2) {
-    animation-delay: 1s;
-}
-
-.shipyard-pulse-ring:nth-child(3) {
-    animation-delay: 2s;
-}
-
-.shipyard-core {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background: var(--c-dark);
-    border: 2px solid var(--c-primary);
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
-    transform: rotate(45deg);
-}
-
-.shipyard-core svg {
-    transform: rotate(-45deg);
-    /* Counter rotate the icon */
-    color: var(--c-primary);
-    width: 50px;
-    height: 50px;
-}
-
-@keyframes shipyardPulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: scale(4);
-        opacity: 0;
-    }
+.cursor-blink {
+    animation: blink 1s step-end infinite;
 }
 
 .ship-step-card {

@@ -27,8 +27,8 @@ export default function Shipyard() {
       );
     });
 
-    // Floating animation for the core shipyard graphic
-    gsap.to(".shipyard-core", {
+    // Floating animation for the code window graphic
+    gsap.to(".code-window", {
       y: -15,
       duration: 2,
       repeat: -1,
@@ -73,22 +73,69 @@ export default function Shipyard() {
         </p>
       </section>
 
-      {/* Interactive Graphic Element */}
-      <section className="shipyard-graphic-container gs-reveal">
-        <div className="shipyard-pulse-ring"></div>
-        <div className="shipyard-pulse-ring"></div>
-        <div className="shipyard-pulse-ring"></div>
-        <div className="shipyard-core">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-          </svg>
+      {/* Code Editor Graphic Element */}
+      <section className="gs-reveal shipyard-code-window-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '4rem' }}>
+        <div 
+          className="code-window"
+          style={{
+            background: 'rgba(10, 10, 10, 0.8)',
+            backdropFilter: 'blur(16px)',
+            border: '1px solid rgba(0, 255, 102, 0.2)',
+            borderRadius: '12px',
+            width: '100%',
+            maxWidth: '650px',
+            overflow: 'hidden',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 102, 0.15)'
+          }}
+        >
+          {/* Mac-style Window Header */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '16px 20px',
+            background: 'rgba(255, 255, 255, 0.02)',
+            borderBottom: '1px solid rgba(0, 255, 102, 0.1)'
+          }}>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#ff5f56' }}></div>
+              <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#ffbd2e' }}></div>
+              <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: '#27c93f' }}></div>
+            </div>
+            <div style={{ margin: '0 auto', color: 'var(--c-text-muted)', fontSize: '0.9rem', fontFamily: 'var(--f-serif)', letterSpacing: '1px' }}>
+              shipyard_init.js
+            </div>
+          </div>
+          {/* Code Body */}
+          <div style={{
+            padding: '30px',
+            fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
+            color: '#a9b7c6',
+            fontSize: '1.2rem',
+            lineHeight: '1.8',
+            textAlign: 'left'
+          }}>
+            <p style={{ margin: 0 }}>
+              <span style={{ color: '#cc7832' }}>const</span> <span style={{ color: '#ffc66d' }}>Shipyard</span> = <span style={{ color: '#cc7832' }}>async</span> () <span style={{ color: '#cc7832' }}>=&gt;</span> {'{'}
+            </p>
+            <p style={{ margin: '0 0 0 32px' }}>
+              <span style={{ color: '#cc7832' }}>await</span> <span style={{ color: '#9876aa' }}>openSource</span>.<span style={{ color: '#ffc66d' }}>collaborate</span>();
+            </p>
+            <p style={{ margin: '0 0 0 32px' }}>
+              <span style={{ color: '#cc7832' }}>await</span> <span style={{ color: '#9876aa' }}>project</span>.<span style={{ color: '#ffc66d' }}>launch</span>(<span style={{ color: '#6a8759' }}>&quot;world&quot;</span>);
+            </p>
+            <p style={{ margin: '0 0 0 32px' }}>
+              <span style={{ color: '#ffc66d' }}>celebrate</span>();
+            </p>
+            <p style={{ margin: 0 }}>
+              {'}'};
+            </p>
+            <p style={{ margin: '24px 0 0 0', display: 'flex', alignItems: 'center' }}>
+              <span style={{ color: 'var(--c-primary)', fontWeight: 'bold' }}>~</span>
+              <span style={{ color: '#8B949E', margin: '0 12px' }}>$</span>
+              <span style={{ color: '#fff' }}>npm run shipyard</span>
+              <span className="cursor-blink" style={{ display: 'inline-block', width: '10px', height: '20px', background: 'var(--c-primary)', marginLeft: '8px' }}></span>
+            </p>
+          </div>
         </div>
       </section>
 
